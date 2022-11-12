@@ -31,3 +31,13 @@ func DBConnect() *gorm.DB {
 
 	return db
 }
+
+func GetUserData(Id int) User {
+	db := DBConnect()
+
+	user := User{}
+
+	db.Where("id = ?", Id).First(&user)
+
+	return user
+}
