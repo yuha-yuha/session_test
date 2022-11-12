@@ -13,6 +13,12 @@ func ServerSetup() *gin.Engine {
 	//一時セッションと永続セッションの2つのセッション
 	sessionNames := []string{"tempSession", "permaSession"}
 
-	r.LoadHTMLGlob("/view")
+	r.LoadHTMLGlob("/view/*/**")
+
+	r.GET("/", model.OutputHTML)
+	r.POST("/user", model.Login)
+	r.DELETE("/user", model.Logout)
+
+	return r
 
 }
