@@ -19,8 +19,8 @@ func OutputHTML(ctx *gin.Context) {
 
 	ctx.HTML(200, "index.html", gin.H{
 		"isLoggedIn": isloggedIn,
-		"UserName":   database.user.UName,
-		"UserId":     database.user.Uid,
+		"UserName":   user.UName,
+		"UserId":     user.Uid,
 	})
 
 }
