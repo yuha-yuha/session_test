@@ -15,9 +15,9 @@ func ServerSetup() *gin.Engine {
 
 	r.LoadHTMLGlob("/view/*/**")
 
-	r.GET("/", model.OutputHTML)
-	r.POST("/user", model.Login)
-	r.DELETE("/user", model.Logout)
+	r.GET("/", OutputHTML)
+	r.POST("/user", Login)
+	r.DELETE("/user", Logout)
 
 	return r
 
