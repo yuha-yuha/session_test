@@ -25,11 +25,11 @@ func ServerSetup() *gin.Engine {
 		MaxAge: 3600, //一時間有効
 	})*/
 
-	r.LoadHTMLGlob("/view/*/**")
+	r.LoadHTMLGlob("view/*.html")
 
 	r.GET("/", OutputHTML)
-	r.POST("/user", Login)
-	r.DELETE("/user", Logout)
+	//r.POST("/user", Login)
+	//r.DELETE("/user", Logout)
 
 	return r
 
