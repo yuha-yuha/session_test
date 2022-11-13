@@ -5,5 +5,5 @@ RUN  apk update
 
 EXPOSE 8080
 
-ENV ROOT=/go/src
+ENV ROOT=/go/src/app
 WORKDIR ${ROOT}

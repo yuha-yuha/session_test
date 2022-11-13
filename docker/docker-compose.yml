@@ -14,8 +14,8 @@ services:
       - db
     volumes:
       - type: bind
-        source: ./../src
-        target: /go/src
+        source: ./../app
+        target: /go/src/app
     networks:
       - wakannaippi_network
 
