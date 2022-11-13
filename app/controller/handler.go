@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"Golang/session/app/database"
-	"Golang/session/app/model"
+	"app/database"
+	"app/model"
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
