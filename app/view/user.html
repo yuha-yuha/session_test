@@ -7,7 +7,7 @@
             <h1>User profile</h1>
             ユーザネーム:{{.UserName}}<br>
             ユーザID:{{.UserId}} <br>
-            <form action="localhost:8080" method="DELETE">
+            <form action="/auth/logout" method="DELETE">
                 <button id = "logout">ログアウト</button>
             </form>
     </body>
