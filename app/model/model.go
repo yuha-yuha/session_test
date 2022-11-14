@@ -1,9 +1,13 @@
 package model
 
-func IsLoggedIn(userId int) bool {
-	if userId != 0 {
-		return false
-	} else {
-		return true
+func IsLoggedIn(Id interface{}) (bool, int) {
+
+	Idint, ok := Id.(int)
+
+	if Idint == 0 {
+		return false, 0
 	}
+
+	return ok, Idint
+
 }

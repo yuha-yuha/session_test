@@ -11,11 +11,15 @@ import (
 func OutputHTML(ctx *gin.Context) {
 	session := sessions.Default(ctx)
 
-	Id := session.Get("Id").(int)
+	user := database.User{}
 
-	isloggedIn := model.IsLoggedIn(Id)
+	Id := session.Get("Id")
 
-	user := database.GetUserData(Id)
+	isloggedIn, Idint := model.IsLoggedIn(Id)
+
+	if isloggedIn {
+		user = database.GetUserData(Idint)
+	}
 
 	ctx.HTML(200, "index.html", gin.H{
 		"isLoggedIn": isloggedIn,
