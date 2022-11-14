@@ -32,12 +32,12 @@ func DBConnect() *gorm.DB {
 	return db
 }
 
-func GetUserData(Id int) User {
+func GetUserData(Id int) (User, error) {
 	db := DBConnect()
 
 	user := User{}
 
-	db.Where("id = ?", Id).First(&user)
+	err := db.Debug().Where("id = ?", Id).First(&user).Error
 
-	return user
+	return user, err
 }
