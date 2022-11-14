@@ -27,9 +27,12 @@ func ServerSetup() *gin.Engine {
 
 	r.LoadHTMLGlob("view/*.html")
 
-	r.GET("/", OutputHTML)
-	//r.POST("/user", Login)
-	//r.DELETE("/user", Logout)
+	r.GET("/login", LoginPage)
+	r.POST("/login", Login)
+	r.GET("/signup", SignupPage)
+	r.POST("/signup", Signup)
+	r.GET("/user", UserPage)
+	r.DELETE("/user", Logout)
 
 	return r
 
