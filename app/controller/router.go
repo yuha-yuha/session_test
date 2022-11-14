@@ -31,14 +31,14 @@ func ServerSetup() *gin.Engine {
 
 	r.GET("/login", LoginPage)
 	r.POST("/login", Login)
-	r.GET("/signup", SignupPage)
-	r.POST("/signup", Signup)
+	//r.GET("/signup", SignupPage)
+	//r.POST("/signup", Signup)
 
-	auth := r.Group("auth")
+	auth := r.Group("/auth")
 	auth.Use(middleware.IsLoggedIn)
 	{
-		auth.GET("/user", UserPage)
-		auth.DELETE("/user", Logout)
+		//	auth.GET("/user", UserPage)
+		//	auth.DELETE("/user", Logout)
 	}
 
 	return r
