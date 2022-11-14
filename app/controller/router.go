@@ -15,9 +15,8 @@ func ServerSetup() *gin.Engine {
 	r.Use(sessions.Sessions("mysession", store))
 	/*セッションクッキーの例
 	store.Options(sessions.Options{
-		Path: "/",
+		Path:   "/",
 		Domain: "localhost",
-
 	})*/
 
 	//永続クッキーの例
@@ -38,7 +37,7 @@ func ServerSetup() *gin.Engine {
 	auth.Use(middleware.IsLoggedIn)
 	{
 		auth.GET("/user", UserPage)
-		//	auth.DELETE("/user", Logout)
+		auth.POST("/logout", Logout)
 	}
 
 	return r
