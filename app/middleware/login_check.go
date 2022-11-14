@@ -13,8 +13,8 @@ func IsLoggedIn(ctx *gin.Context) {
 	Id := session.Get("id")
 
 	if Id != nil {
-		idInt, _ := Id.(int)
-		_, err := database.GetUserData(idInt)
+		idString, _ := Id.(string)
+		_, err := database.GetUserData(idString)
 
 		if err != nil {
 			ctx.Status(401)
