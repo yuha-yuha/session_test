@@ -19,7 +19,7 @@ func Login(ctx *gin.Context) {
 	MatchPass := model.PassCheck(userId, userPass)
 
 	if MatchPass {
-		log.Println("aiueo")
+		log.Println("logged in!!!!!!!!!!!")
 		session.Set("Id", userId)
 		session.Save()
 		ctx.Redirect(302, "/auth/user")

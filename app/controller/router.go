@@ -37,7 +37,7 @@ func ServerSetup() *gin.Engine {
 	auth := r.Group("/auth")
 	auth.Use(middleware.IsLoggedIn)
 	{
-		//	auth.GET("/user", UserPage)
+		auth.GET("/user", UserPage)
 		//	auth.DELETE("/user", Logout)
 	}
 
