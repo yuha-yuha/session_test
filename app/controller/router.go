@@ -1,6 +1,8 @@
 package controller
 
 import (
+	"app/middleware"
+
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
@@ -31,8 +33,13 @@ func ServerSetup() *gin.Engine {
 	r.POST("/login", Login)
 	r.GET("/signup", SignupPage)
 	r.POST("/signup", Signup)
-	r.GET("/user", UserPage)
-	r.DELETE("/user", Logout)
+
+	auth := r.Group("auth")
+	auth.Use(middleware.IsLoggedIn)
+	{
+		auth.GET("/user", UserPage)
+		auth.DELETE("/user", Logout)
+	}
 
 	return r
 
