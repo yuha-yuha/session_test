@@ -27,6 +27,7 @@ func ServerSetup() *gin.Engine {
 	})*/
 
 	r.LoadHTMLGlob("view/*.html")
+	r.Static("/assets", "./assets")
 
 	r.GET("/login", LoginPage)
 	r.POST("/login", Login)
