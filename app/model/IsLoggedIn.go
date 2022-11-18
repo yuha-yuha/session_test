@@ -1,13 +1,26 @@
 package model
 
-func IsLoggedIn(Id interface{}) (bool, int) {
+import (
+	"app/database"
+	"log"
+)
 
-	Idint, ok := Id.(int)
+func IsLoggedIn(Id interface{}) (bool, string) {
 
-	if Idint == 0 {
-		return false, 0
+	if Id != nil {
+		idString, _ := Id.(string)
+		_, err := database.GetUserData(idString)
+
+		if err != nil {
+			log.Println(err)
+			return false, ""
+		}
+
+	} else {
+		log.Println("Id:", Id)
+		return false, ""
 	}
 
-	return ok, Idint
+	return true, Id.(string)
 
 }
