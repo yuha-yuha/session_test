@@ -13,11 +13,13 @@ func ServerSetup() *gin.Engine {
 	r := gin.Default()
 	store := cookie.NewStore([]byte("secret"))
 	r.Use(sessions.Sessions("mysession", store))
-	/*セッションクッキーの例
+	//セッションクッキーの例
+	//
 	store.Options(sessions.Options{
 		Path:   "/",
 		Domain: "localhost",
-	})*/
+	})
+	//
 
 	//永続クッキーの例
 	/*store.Options(sessions.Options{
@@ -35,6 +37,7 @@ func ServerSetup() *gin.Engine {
 	//r.POST("/signup", Signup)
 
 	auth := r.Group("/auth")
+	auth.Static("/assets", "./assets")
 	auth.Use(middleware.IsLoggedIn)
 	{
 		auth.GET("/user", UserPage)
