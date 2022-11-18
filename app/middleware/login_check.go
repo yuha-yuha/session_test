@@ -21,12 +21,14 @@ func IsLoggedIn(ctx *gin.Context) {
 		if err != nil {
 			log.Println(err)
 			ctx.Status(401)
+			ctx.Redirect(302, "/login")
 			ctx.Abort()
 		}
 	} else {
 		ctx.Status(401)
+		ctx.Redirect(302, "/login")
 		ctx.Abort()
 	}
-
+	log.Println("認証成功")
 	ctx.Next()
 }
