@@ -33,6 +33,7 @@ func ServerSetup() *gin.Engine {
 
 	r.GET("/login", LoginPage)
 	r.POST("/login", Login)
+	r.GET("/", RootRouting)
 	//r.GET("/signup", SignupPage)
 	//r.POST("/signup", Signup)
 
