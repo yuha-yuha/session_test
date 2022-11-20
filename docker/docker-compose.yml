@@ -1,6 +1,6 @@
 services:
   go:
-    container_name: wakannaippi_go
+    container_name: test_go
     build:
       context: ./go
       dockerfile: Dockerfile
@@ -39,10 +39,10 @@ services:
         source: ./mysql/init
         target: /docker-entrypoint-initdb.d
     networks:
-      - wakannaippi_network
+      - test_network
 
 networks:
-  wakannaippi_network:
+  test_network:
 
 volumes:
   mysql-data:
