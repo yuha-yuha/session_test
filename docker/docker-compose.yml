@@ -17,7 +17,7 @@ services:
         source: ./../app
         target: /go/src/app
     networks:
-      - wakannaippi_network
+      - test_network
 
     
   db:
